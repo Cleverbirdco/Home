@@ -821,54 +821,7 @@ nav {
 
 
 
-  <section id="cont" class="contact-us">
-    <div class="container">
-      <h2 class="section-title">Contact Us</h2>
-      <p class="section-description">We'd love to hear from you! Please fill out the form below to get in touch.</p>
-      <form id="contactForm" class="contact-form" onsubmit="submitForm(event)">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Your Email" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
-      <div id="successMessage" class="success-message" style="display: none;">
-        <p>Thank you for contacting us! We will get back to you shortly.</p>
-      </div>
-    </div>
 
-    <script>
-        function submitForm(event) {
-  event.preventDefault(); // Prevents the default form submission behavior
-
-  // Gather form data
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
-
-  // You can add your backend logic here (e.g., sending the form data to a server)
-
-  // Show a success message
-  const successMessage = document.getElementById('successMessage');
-  successMessage.style.display = 'block'; // Show success message
-
-  // Reset the form fields after submission
-  document.getElementById('contactForm').reset();
-
-  // Optionally, you can hide the form after submission
-  // document.getElementById('contactForm').style.display = 'none';
-}
-
-    </script>
-  </section>
   
     <style>
         /* Basic Styles */
