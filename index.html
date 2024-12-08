@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CleverBird</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+
+      .enclose {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+
+    }
+  
+      .faq-container {
+        width: 80%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+  
+      .faq-item {
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      .faq-item h3 {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        margin: 0;
+        cursor: pointer;
+      }
+  
+      .faq-item h3 i {
+        margin-right: 10px;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+  
+      .faq-answer {
+        display: none;
+        padding: 10px 0;
+        font-size: 1rem;
+        color: #333;
+        line-height: 1.6;
+        opacity: 0;
+        max-height: 0;
+        transition: opacity 0.3s ease, max-height 0.3s ease;
+      }
+  
+      .faq-item.open h3 i {
+        transform: rotate(45deg);
+      }
+  
+      .faq-item.open .faq-answer {
+        display: block;
+        opacity: 1;
+        max-height: 1000px;
+      }
+    </style>
+    <style>
+* {
+    font-family: 'Quicksand', sans-serif;
+    
+}
+body{
+    background-color:black ;
+}
+/* Basic reset and styling */
+.vnavh {
+    background-color: #111;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+}
+
+/* Navbar styles */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00051f;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    max-width: 1200px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    margin-right: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #5575f6;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 4px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #1a202c;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        border-top: 1px solid #444;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+/* Hero Section Styles */
+.hero {
+    background: radial-gradient(circle, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    padding: 1rem 2rem;
+    background-color: hsl(232, 100%, 19%);
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: hsl(232, 100%, 25%);
+}
+
+/* About Us Section */
+.about-us {
+    background: linear-gradient(135deg, hsl(0, 0%, 0%), hsl(0, 0%, 0%) 60%), url('path/to/your-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.125rem;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.vision, .mission {
+    width: 48%;
+}
+
+.vision h3, .mission h3 {
+    font-size: 2rem;
+    color: hsl(231, 100%, 67%);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.vision p, .mission p {
+    color: #c8c8c8;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.cta {
+    text-align: center;
+}
+
+.cta button {
+    background-color: hsl(233, 80%, 60%);
+    color: #ffffff;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta button:hover {
+    background-color: hsl(231, 100%, 60%);
+}
+
+/* Product Section */
+.products-section {
+    background: black;
+    padding: 50px 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: hsl(0, 0%, 87%);
+    text-align: center;
+}
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product {
+    background: linear-gradient(to bottom, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.5s ease; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.product-title {
+    font-size: 1.5rem;
+    color: hsl(231, 100%, 73%);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #cecece;
+    line-height: 1.5;
+}
+.product:hover{
+    transform: translateY(-20px);
+    color: #ffffff;
+}
+.more-products {
+    font-size: 1.25rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive Product Section */
+@media (max-width: 768px) {
+    .products-list {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .more-products {
+        font-size: 1.125rem;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 1rem; /* Reduce padding on smaller screens */
+        height: auto; /* Allow content to flow naturally */
+        min-height: 60vh; /* Set a minimum height */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Make heading smaller */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+
+    .hero button {
+        font-size: 1rem; /* Make button font size smaller */
+        padding: 0.8rem 1.5rem; /* Reduce button padding */
+    }
+}
+@media (max-width: 768px) {
+    .about-us {
+        padding: 40px 10px; /* Adjust padding */
+    }
+
+    .header h2 {
+        font-size: 2rem; /* Make heading smaller */
+    }
+
+    .header p {
+        font-size: 1rem; /* Adjust paragraph font size */
+        max-width: 90%; /* Increase paragraph width for small screens */
+    }
+
+    .content {
+        flex-direction: column; /* Stack vision and mission sections */
+        gap: 20px; /* Reduce gap between sections */
+    }
+
+    .vision, .mission {
+        width: 100%; /* Full width for vision and mission */
+    }
+
+    .cta button {
+        font-size: 1rem; /* Adjust button font size */
+        padding: 10px 30px; /* Adjust button padding */
+    }
+}
+/* Features Section */
+.features {
+    background-color: #000000;
+    padding: 60px 20px;
+}
+
+.features .header {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.feature-card {
+    background-color: #b8acac;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-card h3 {
+    font-size: 1.75rem;
+    color: hsl(231, 100%, 67%);
+    margin-bottom: 20px;
+}
+
+.feature-card p {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for .features section */
+@media (max-width: 1024px) {
+    .feature-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-cards {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+        gap: 20px;
+    }
+
+    .features .header {
+        font-size: 2rem; /* Make header smaller on small screens */
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem; /* Make feature titles smaller */
+    }
+
+    .feature-card p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+}
+/* Features Section */
+.features {
+    background-color: #000000;
+    padding: 60px 20px;
+}
+
+.features .header {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default 2 columns */
+    gap: 40px;
+    transition: all 0.5s ease; 
+}
+
+.feature-card {
+    background: linear-gradient(to top, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+    padding: 20px;
+    transition: all 0.5s ease; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+    font-size: 1.75rem;
+    color: hsl(231, 100%, 67%);
+    margin-bottom: 20px;
+}
+
+.feature-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-card li {
+    font-size: 1.125rem;
+    color: #c6c6c6;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.feature-card:hover{
+    transform: translateY(-20px);
+}
+/* Responsive adjustments for .features section */
+@media (max-width: 1024px) {
+    .feature-cards {
+        grid-template-columns: 1fr; /* 1 column on medium screens */
+        gap: 20px;
+    }
+
+    .features .header {
+        font-size: 2rem; /* Smaller header font */
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem; /* Smaller title font */
+    }
+
+    .feature-card li {
+        font-size: 1rem; /* Smaller text on smaller screens */
+    }
+}
+
+
+
+
+/* Basic Styles */
+.founder {
+    background: linear-gradient(to top, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+  padding: 60px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Founder Info Section */
+.founder-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.founder-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.founder-details {
+  max-width: 500px;
+}
+
+.founder-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0091ff;
+  margin-bottom: 10px;
+}
+
+.founder-title {
+  font-size: 1.2rem;
+  color: #00fff2;
+  margin-bottom: 20px;
+}
+
+.founder-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e1e1e1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .founder-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .founder-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .founder-name {
+    font-size: 1.8rem;
+  }
+
+  .founder-title {
+    font-size: 1.1rem;
+  }
+
+  .founder-bio {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .founder-info {
+    gap: 20px;
+  }
+
+  .founder-name {
+    font-size: 1.6rem;
+  }
+
+  .founder-title {
+    font-size: 1rem;
+  }
+
+  .founder-bio {
+    font-size: 0.85rem;
+  }
+}
+
+    </style>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+<div class="vnavh">
+    <nav>
+        <div class="logo">
+            <!-- Add your logo here -->
+            <img src="cleverbird-no-text-removebg-preview.png" alt="CleverBird Logo">
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#vh">About</a>
+            <a href="#fe">Feature</a>
+            <a href="#pro">Product</a>
+            <a href="#foun">Founder</a>
+            <a href="#cont">Contact</a>
+            <a href="https://enterpriseplat.github.io/Plation/" target="_blank">PlationLib.py</a>
+
+        </div>
+        <div class="burger" id="burger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <!---Hero-->
+    <section id="hero" class="hero">
+        <div>
+            <h1>Welcome to CleverBird</h1>
+            <p>Building the future of coding collaboration with speed, security, and simplicity.</p>
+           <a href="#foot"> <button>Get Started</button></a>
+        </div>
+    </section>
+
+
+
+<div id="vh" class="vh">
+
+    <section class="about-us">
+        <div class="container">
+            <div class="header">
+                <h2>About Us</h2>
+                <p>We are a passionate team on a mission to transform the way developers collaborate, code, and create. Join us on our journey to simplify the development process.</p>
+            </div>
+            <div class="content">
+                <div class="vision">
+                    <h3>Our Vision</h3>
+                    <p>At CleverBird, our vision is to create a seamless and collaborative coding experience for developers worldwide. We aim to bring together a community of innovators, thinkers, and creators to build high-quality, scalable software solutions faster and more securely. By providing tools that help automate and simplify workflows, we make sure developers spend less time on administrative tasks and more time doing what they love—coding.</p>
+                </div>
+                <div class="mission">
+                    <h3>Our Mission</h3>
+                    <p>Our mission is to be the most trusted platform for developers to collaborate, manage projects, and showcase their work. Through CleverBird, we want to remove the barriers to collaboration in software development, focusing on speed, reliability, and innovation. Our tools provide real-time collaboration, transparent version control, and powerful integrations, all in one platform designed with developers in mind.</p>
+                </div>
+            </div>
+            <div class="cta">
+                <a href="#foot">    <button>Join Us Today</button> </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section id="pro" class="products-section">
+    <div class="container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-list">
+            <div class="product">
+                <h3 class="product-title">CleverHub (Code Repository & Version Control)</h3>
+                <p class="product-description">A highly scalable and secure code repository for managing, tracking, and collaborating on code. Supports both traditional Git workflows and new features like graph-based versioning.</p>
+            </div>
+            <div class="product">
+                <h3 class="product-title">CleverFlow (CI/CD & Automation)</h3>
+                <p class="product-description">Continuous Integration and Deployment with intelligent pipelines that automatically suggest or create deployment workflows based on commit patterns.</p>
+            </div>
+            <div class="product">
+                <h3 class="product-title">CleverAI (Code Review & Optimization)</h3>
+                <p class="product-description">Uses machine learning to flag potential bugs, optimize performance, and suggest refactors based on best practices and past decisions.</p>
+            </div>
+            <div class="product">
+                <h3 class="product-title">CleverComms (Team Communication & Collaboration)</h3>
+                <p class="product-description">A communication hub for teams, integrated directly into the developer environment, with features like code-embedded chat and real-time collaboration on code.</p>
+            </div>
+            <div class="product">
+                <h3 class="product-title">CleverDocs (Automated Documentation)</h3>
+                <p class="product-description">Generates context-aware documentation automatically, keeping it up to date with code changes to ensure it’s always relevant without manual updates.</p>
+            </div>
+            <div class="product">
+                <h3 class="product-title">CleverSec (Security & Compliance)</h3>
+                <p class="product-description">Manage and monitor code security with features like dependency scanning, vulnerability detection, predictive security, and compliance checks for GDPR and HIPAA.</p>
+            </div>
+        </div>
+        <p class="more-products">and many many more...</p>
+    </div>
+</section>
+
+<section id="fe" class="features">
+    <div class="container">
+        <h2 class="header">Our Key Features</h2>
+        <div class="feature-cards">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <h3>Enhanced Code Collaboration</h3>
+                <ul>
+                    <li><strong>AI-Powered Code Reviews:</strong> Integrate AI that provides real-time suggestions, refactors code, and helps with finding potential bugs or optimizations during pull requests.</li>
+                    <li><strong>Collaborative Live Editing:</strong> Allow developers to edit files in real-time together, with a live cursor and commenting system for better team collaboration.</li>
+                    <li><strong>Merge Conflict Resolution Assistant:</strong> Provide an AI-driven assistant to help resolve merge conflicts by suggesting or automatically generating resolutions based on code context.</li>
+                </ul>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <h3>Advanced Issue Tracking and Management</h3>
+                <ul>
+                    <li><strong>AI-Powered Bug Prediction:</strong> Automatically detects potential bugs based on historical commits and patterns in the codebase, suggesting possible areas of improvement or warnings.</li>
+                    <li><strong>Contextual Issue Tracking:</strong> Provide deeper context within issues, automatically linking them to relevant code snippets, pull requests, commits, and related issues.</li>
+                    <li><strong>Time-tracking Integration:</strong> Built-in time tracking to monitor progress on issues and pull requests with customizable worklogs, helping teams estimate and manage tasks better.</li>
+                </ul>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <h3>Documentation and Knowledge Base</h3>
+                <ul>
+                    <li><strong>Integrated Wiki with AI Search:</strong> A knowledge base that uses AI to surface answers or relevant documentation based on code, issues, or project questions, making it easier to navigate large codebases.</li>
+                    <li><strong>Interactive Docs:</strong> Live documentation that updates based on code changes, allowing developers to immediately see what part of the documentation has changed based on commits.</li>
+                </ul>
+            </div>
+
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <h3>Security and Compliance</h3>
+                <ul>
+                    <li><strong>Security Scanning for Pull Requests:</strong> Automatically scans pull requests for vulnerabilities, dependency issues, and adheres to security best practices.</li>
+                    <li><strong>Compliance Tracking:</strong> Allows users to track and ensure compliance with industry standards (e.g., GDPR, HIPAA) directly within the repository.</li>
+                    <li><strong>Automatic Dependency Audit:</strong> Scans and audits dependencies to detect outdated or vulnerable packages, ensuring the repository adheres to security best practices.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="foun" class="founder">
+    <div class="container">
+      <div class="founder-info">
+        <img src="https://yt3.ggpht.com/3kaQDVimWo6RXRRcEICrf-ku6ZioT7yqQE2HZs0sXrDOOnuKf7Q-BvQ-6Tojnc2V3kVdrx7Lig=s600-c-k-c0x00ffffff-no-rj-rp-mo" alt="Aaditya Pandey" class="founder-img">
+        <div class="founder-details">
+          <h2 class="founder-name">Aaditya Pandey</h2>
+          <p class="founder-title">Founder & CEO</p>
+          <p class="founder-bio">
+            Aaditya Pandey is the founder of Cleverbird, a company dedicated to innovation in tech. With a passion for creating solutions that drive change, Aaditya has led the company's growth and success in various tech domains.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+
+
+
+
+
+  <section id="cont" class="contact-us">
+    <div class="container">
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-description">We'd love to hear from you! Please fill out the form below to get in touch.</p>
+      <form id="contactForm" class="contact-form" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+      <div id="successMessage" class="success-message" style="display: none;">
+        <p>Thank you for contacting us! We will get back to you shortly.</p>
+      </div>
+    </div>
+
+    <script>
+        function submitForm(event) {
+  event.preventDefault(); // Prevents the default form submission behavior
+
+  // Gather form data
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // You can add your backend logic here (e.g., sending the form data to a server)
+
+  // Show a success message
+  const successMessage = document.getElementById('successMessage');
+  successMessage.style.display = 'block'; // Show success message
+
+  // Reset the form fields after submission
+  document.getElementById('contactForm').reset();
+
+  // Optionally, you can hide the form after submission
+  // document.getElementById('contactForm').style.display = 'none';
+}
+
+    </script>
+  </section>
+  
+    <style>
+        /* Basic Styles */
+.contact-us {
+    background: linear-gradient(to bottom, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+  padding: 60px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.1rem;
+  color: #71a3ff;
+  margin-bottom: 8px;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border: 1px solid #444;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.submit-btn {
+  padding: 14px 30px;
+  background-color: #5381ff;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2e55c0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-description {
+    font-size: 1rem;
+  }
+
+  .contact-form {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .form-group input, .form-group textarea {
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-description {
+    font-size: 0.9rem;
+  }
+
+  .submit-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+/* Success message styles */
+.success-message {
+  background-color: #28a745;
+  color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+    </style>
+  
+  
+
+    <script>
+        // JavaScript for the burger menu toggle on small screens
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</div>
+
+
+
+
+
+
+
+<div class="enclose">
+    
+
+<div class="faq-container">
+    <div class="faq-item">
+      <h3><i class="fas fa-plus"></i> What is Cleverbird?</h3>
+      <div class="faq-answer">
+        <p>Cleverbird is a leading platform that provides innovative solutions for tech professionals, businesses, and developers, empowering them to collaborate, optimize processes, and grow faster.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <h3><i class="fas fa-plus"></i> How does Cleverbird help developers?</h3>
+      <div class="faq-answer">
+        <p>Cleverbird offers features like AI-powered code reviews, real-time collaboration tools, and advanced issue tracking, making it easier for developers to write, review, and maintain code effectively.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <h3><i class="fas fa-plus"></i> Can I integrate Cleverbird with other tools?</h3>
+      <div class="faq-answer">
+        <p>Yes, Cleverbird allows integration with various tools like GitHub, GitLab, and Bitbucket, enabling seamless collaboration and enhanced workflow management across different platforms.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <h3><i class="fas fa-plus"></i> Is Cleverbird secure?</h3>
+      <div class="faq-answer">
+        <p>Cleverbird is built with security in mind, offering features such as automatic security scanning for pull requests, compliance tracking, and robust encryption for data protection.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Select all FAQ items
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    // Add event listeners for each FAQ item
+    faqItems.forEach(item => {
+      const question = item.querySelector('h3');
+      question.addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+
+
+</div>
+
+
+<style>
+    .encapsule {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .subscription-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .subscription-container h2 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .subscription-container p {
+      margin-bottom: 30px;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: #333;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #3498db;
+      outline: none;
+    }
+
+    .input-group button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #3498db;
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .input-group button:hover {
+      background-color: #2980b9;
+    }
+
+    .input-group i {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #3498db;
+      font-size: 1.3rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .subscription-container {
+        padding: 30px;
+      }
+
+      .subscription-container h2 {
+        font-size: 1.8rem;
+      }
+
+      .input-group input {
+        font-size: 1rem;
+      }
+
+      .input-group button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+<footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h3 class="footer-logo">CleverBird</h3>
+          <p class="footer-description">Building the future of coding collaboration with speed, security, and simplicity.</p>
+        </div>
+        <div id="foot" class="footer-middle">
+            <h3 class="footer-logo">Coming Soon!</h3>
+            <p class="footer-description">Message Us "i am a part" To Join</p>
+
+    
+            
+
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 CleverBird. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+<style>
+    html {
+  scroll-behavior: smooth;
+}
+
+    /* Footer Styles */
+.footer {
+    background: linear-gradient(to top, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+  color: #fff;
+  padding: 20px 0;
+  font-size: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+  width: 30%;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-description {
+  font-size: 1rem;
+  color: #bbb;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  color: #bbb;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .footer-left,
+  .footer-middle,
+  .footer-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-heading {
+    font-size: 1.1rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
+  }
+}
+
+</style>  
+</html>

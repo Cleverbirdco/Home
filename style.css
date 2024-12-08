@@ -1,0 +1,563 @@
+
+* {
+    font-family: 'Quicksand', sans-serif;
+    
+}
+body{
+    background-color:black ;
+}
+/* Basic reset and styling */
+.vnavh {
+    background-color: #111;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+}
+
+/* Navbar styles */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00051f;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    max-width: 1200px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    margin-right: 20px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #5575f6;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 4px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: #1a202c;
+        position: absolute;
+        top: 60px;
+        left: 0;
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        border-top: 1px solid #444;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
+
+/* Hero Section Styles */
+.hero {
+    background: radial-gradient(circle, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.hero button {
+    padding: 1rem 2rem;
+    background-color: hsl(232, 100%, 19%);
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: hsl(232, 100%, 25%);
+}
+
+/* About Us Section */
+.about-us {
+    background: linear-gradient(135deg, hsl(0, 0%, 0%), hsl(0, 0%, 0%) 60%), url('path/to/your-image.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.125rem;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.vision, .mission {
+    width: 48%;
+}
+
+.vision h3, .mission h3 {
+    font-size: 2rem;
+    color: hsl(231, 100%, 67%);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.vision p, .mission p {
+    color: #c8c8c8;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.cta {
+    text-align: center;
+}
+
+.cta button {
+    background-color: hsl(233, 80%, 60%);
+    color: #ffffff;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cta button:hover {
+    background-color: hsl(231, 100%, 60%);
+}
+
+/* Product Section */
+.products-section {
+    background: black;
+    padding: 50px 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: hsl(0, 0%, 87%);
+    text-align: center;
+}
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product {
+    background: linear-gradient(to bottom, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.5s ease; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.product-title {
+    font-size: 1.5rem;
+    color: hsl(231, 100%, 73%);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #cecece;
+    line-height: 1.5;
+}
+.product:hover{
+    transform: translateY(-20px);
+    color: #ffffff;
+}
+.more-products {
+    font-size: 1.25rem;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive Product Section */
+@media (max-width: 768px) {
+    .products-list {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .more-products {
+        font-size: 1.125rem;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        padding: 0 1rem; /* Reduce padding on smaller screens */
+        height: auto; /* Allow content to flow naturally */
+        min-height: 60vh; /* Set a minimum height */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* Make heading smaller */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+
+    .hero button {
+        font-size: 1rem; /* Make button font size smaller */
+        padding: 0.8rem 1.5rem; /* Reduce button padding */
+    }
+}
+@media (max-width: 768px) {
+    .about-us {
+        padding: 40px 10px; /* Adjust padding */
+    }
+
+    .header h2 {
+        font-size: 2rem; /* Make heading smaller */
+    }
+
+    .header p {
+        font-size: 1rem; /* Adjust paragraph font size */
+        max-width: 90%; /* Increase paragraph width for small screens */
+    }
+
+    .content {
+        flex-direction: column; /* Stack vision and mission sections */
+        gap: 20px; /* Reduce gap between sections */
+    }
+
+    .vision, .mission {
+        width: 100%; /* Full width for vision and mission */
+    }
+
+    .cta button {
+        font-size: 1rem; /* Adjust button font size */
+        padding: 10px 30px; /* Adjust button padding */
+    }
+}
+/* Features Section */
+.features {
+    background-color: #000000;
+    padding: 60px 20px;
+}
+
+.features .header {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.feature-card {
+    background-color: #b8acac;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-card h3 {
+    font-size: 1.75rem;
+    color: hsl(231, 100%, 67%);
+    margin-bottom: 20px;
+}
+
+.feature-card p {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for .features section */
+@media (max-width: 1024px) {
+    .feature-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .feature-cards {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+        gap: 20px;
+    }
+
+    .features .header {
+        font-size: 2rem; /* Make header smaller on small screens */
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem; /* Make feature titles smaller */
+    }
+
+    .feature-card p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+}
+/* Features Section */
+.features {
+    background-color: #000000;
+    padding: 60px 20px;
+}
+
+.features .header {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default 2 columns */
+    gap: 40px;
+    transition: all 0.5s ease; 
+}
+
+.feature-card {
+    background: linear-gradient(to top, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+    padding: 20px;
+    transition: all 0.5s ease; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+    font-size: 1.75rem;
+    color: hsl(231, 100%, 67%);
+    margin-bottom: 20px;
+}
+
+.feature-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-card li {
+    font-size: 1.125rem;
+    color: #c6c6c6;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.feature-card:hover{
+    transform: translateY(-20px);
+}
+/* Responsive adjustments for .features section */
+@media (max-width: 1024px) {
+    .feature-cards {
+        grid-template-columns: 1fr; /* 1 column on medium screens */
+        gap: 20px;
+    }
+
+    .features .header {
+        font-size: 2rem; /* Smaller header font */
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem; /* Smaller title font */
+    }
+
+    .feature-card li {
+        font-size: 1rem; /* Smaller text on smaller screens */
+    }
+}
+
+
+
+
+/* Basic Styles */
+.founder {
+    background: linear-gradient(to top, hsl(232, 29%, 44%), hsl(0, 0%, 0%));
+  padding: 60px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Founder Info Section */
+.founder-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.founder-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.founder-details {
+  max-width: 500px;
+}
+
+.founder-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0091ff;
+  margin-bottom: 10px;
+}
+
+.founder-title {
+  font-size: 1.2rem;
+  color: #00fff2;
+  margin-bottom: 20px;
+}
+
+.founder-bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e1e1e1;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .founder-info {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .founder-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .founder-name {
+    font-size: 1.8rem;
+  }
+
+  .founder-title {
+    font-size: 1.1rem;
+  }
+
+  .founder-bio {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .founder-info {
+    gap: 20px;
+  }
+
+  .founder-name {
+    font-size: 1.6rem;
+  }
+
+  .founder-title {
+    font-size: 1rem;
+  }
+
+  .founder-bio {
+    font-size: 0.85rem;
+  }
+}
+
